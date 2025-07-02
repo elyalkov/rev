@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Size, Category, ClothingItem
-
+from cart.forms import CartAddProductForm
 
 def product_list(request, category_slug=None):
     categories = Category.objects.all()
@@ -21,5 +21,8 @@ def product_detail(request, id, slug):
     #похожие продукты на те, на стрканицу которых вы зашли
     related_products = ClothingItem.objects.filter(category=product.category,
                                                    available=True).exclude(id=product.id)[:4]
+    cart_product_form = CartAddProductForm()
+
     return render(request, 'main/product/detail.html', {'product':product,
-                                                        'related_products':related_products})
+                                                        'related_products':related_products,
+                                                        'cart_product_form':cart_product_form})

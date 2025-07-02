@@ -1,6 +1,6 @@
 #КОРЗИНА ЧЕРЕЗ СЕССИИ (ЧЕРЕЗ COCKIE)
 from django.conf import settings
-from reverence.main.models import ClothingItem
+from main.models import ClothingItem
 
 
 class Cart: #класс управляет добавлением, удалением и хранением товаров в корзине пользователя

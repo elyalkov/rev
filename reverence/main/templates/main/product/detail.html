@@ -21,7 +21,7 @@
                     <p>{{ product.description|linebreaks }}</p>
                 </div>
                 <div class="mt-4">
-                    <form action="#" method="post">
+                    <form action="{% url "cart:cart_add" product.id %}" method="post">
                         {{ cart_product_form }}
                         {% csrf_token %}
                         <button type="submit" class="btn btn-primary btn-lg">Добавить в корзину</button>
