@@ -28,6 +28,7 @@ class Category(models.Model):
 class ClothingItem(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
+    image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
     available = models.BooleanField(default=True)
     sizes = models.ManyToManyField(Size, through='ClothingItemSize', #through - имя связующей таблицы
                                    related_name='clothing_item', blank=True) #related_name - как обращаться к элементу
